@@ -1,0 +1,18 @@
+# LaTeX
+*.aux
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.dvi
+
+# Editors
+*.vscode/
+
+# Build dirs
+build/
+out/
