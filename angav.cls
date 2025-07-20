@@ -40,10 +40,30 @@
 \RequirePackage{babel}
 
 % ----------- Color definitions ------------
+\RequirePackage[svgnames]{xcolor}
+% todo: change color names
+\definecolor{AccColor1}{HTML}{C41E3A}     %#C41E3A
+\definecolor{AccColor2}{HTML}{233F8D}     %#233F8D
+\definecolor{AccColor3}{HTML}{D19820}     %#D19820
+\definecolor{AccColor4}{HTML}{148670}     %#148670
 
+\colorlet{ColAccGood}{AccColor4}          %#148670
+\definecolor{ColAccBad}{HTML}{D14B20}     %#D14B20
+
+\colorlet{MainColor}{AccColor1}           %#C41E3A
+\definecolor{LinkColor1}{HTML}{329B71}    %#329B71
+\colorlet{LinkColor2}{AccColor2}          %#233F8D
+
+\definecolor{BoxColor1}{HTML}{081D56}     %#081D56
+\definecolor{BoxColor2}{HTML}{A8760F}     %#A8760F
 
 % ----------- Hyperref setup ---------------
 \RequirePackage[colorlinks=true,hypertexnames=false,pdfusetitle]{hyperref}
+\hypersetup{
+  urlcolor=LinkColor1,
+  linkcolor=LinkColor2,
+  citecolor=LinkColor2
+}
 
 % ----------- Localization ---------------
 \iflanguage{polish}{
@@ -69,6 +89,12 @@
 \newenvironment{solution}{\begin{proof}[\angav@solutionname]\small}{\end{proof}}
 
 % -------------- Custom commands ------------
+\newcommand{\vocab}[1]{\emph{\color{MainColor}#1}}
+
+\DeclareMathOperator{\cis}{cis}
+\DeclareMathOperator*{\lcm}{lcm}
+\DeclareMathOperator{\rank}{rank}
+
 \newcommand{\sA}{{\symcal A}}
 \newcommand{\sB}{{\symcal B}}
 \newcommand{\sC}{{\symcal C}}
