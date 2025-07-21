@@ -9,6 +9,7 @@
   \ClassError{angav}{This class requires LuaLaTeX.}{}
 \fi
 
+
 % ---------- Class options ------------
 \newif\ifangav@polish
 \angav@polishfalse
@@ -22,22 +23,6 @@
 % ---------- Load base class ------------
 \LoadClassWithOptions{scrartcl}
 
-
-% ----------- Required packages ------------
-\RequirePackage{mathtools,amssymb,amsthm}
-
-\RequirePackage{multirow}
-\RequirePackage{multicol}
-
-\RequirePackage{marginalia}
-\marginaliasetup{style={\footnotesize}}
-
-\RequirePackage{fontsetup}  % loads fontspec and New Computer Modern
-\RequirePackage[lining]{raleway}  % loads Raleway sans serif font
-\setmonofont{JetBrainsMono}[Scale=0.85]
-\RequirePackage{microtype}
-
-\RequirePackage{babel}
 
 % ----------- Color definitions ------------
 \RequirePackage[svgnames]{xcolor}
@@ -57,6 +42,35 @@
 \definecolor{BoxColor1}{HTML}{081D56}     %#081D56
 \definecolor{BoxColor2}{HTML}{A8760F}     %#A8760F
 
+
+% ----------- Required packages ------------
+\RequirePackage{mathtools}  % loads amsmath
+\RequirePackage{amssymb}
+\RequirePackge{amsthm,thmtools}
+
+\RequirePackage{multirow}
+\RequirePackage{multicol}
+\RequirePackage{tikz}
+\RequirePackage{nicematrix}
+\NiceMatrixOptions{
+  custom-line={letter=I, tikz=densely dashed, total-width=\pgflinewidth},
+  custom-line={letter=S, tikz=solid, total-width=\pgflinewidth}
+}
+\RequirePackage{booktabs}
+
+\RequirePackage{marginalia}
+\marginaliasetup{style={\footnotesize}}
+
+\RequirePackage[color=ColAccBad,textsize=footnotesize]{todonotes}
+
+\RequirePackage{fontsetup}  % loads fontspec and New Computer Modern
+\RequirePackage[lining]{raleway}  % loads Raleway sans serif font
+\setmonofont{JetBrainsMono}[Scale=0.85]  % you need to have JetBrains Mono installed
+\RequirePackage{microtype}
+
+\RequirePackage{babel}
+
+
 % ----------- Hyperref setup ---------------
 \RequirePackage[colorlinks=true,hypertexnames=false,pdfusetitle]{hyperref}
 \hypersetup{
@@ -64,6 +78,7 @@
   linkcolor=LinkColor2,
   citecolor=LinkColor2
 }
+
 
 % ----------- Localization ---------------
 \iflanguage{polish}{
@@ -85,8 +100,10 @@
   \newcommand{\angav@solutionname}{Solution}
 }
 
+
 % ----------- Custom environments ---------------
 \newenvironment{solution}{\begin{proof}[\angav@solutionname]\small}{\end{proof}}
+
 
 % -------------- Custom commands ------------
 \newcommand{\vocab}[1]{\emph{\color{MainColor}#1}}
