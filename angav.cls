@@ -46,7 +46,7 @@
 % ----------- Required packages ------------
 \RequirePackage{mathtools}  % loads amsmath
 \RequirePackage{amssymb}
-\RequirePackge{amsthm,thmtools}
+\RequirePackage{amsthm,thmtools}
 
 \RequirePackage{multirow}
 \RequirePackage{multicol}
@@ -96,13 +96,46 @@
 
 \iflanguage{polish}{
   \newcommand{\angav@solutionname}{Rozwiązanie}
+  \newcommand{\angav@theoremname}{Twierdzenie}
+  \newcommand{\angav@lemmaname}{Lemat}
+  \newcommand{\angav@corollaryname}{Wniosek}
+  \newcommand{\angav@examplename}{Przykład}
+  \newcommand{\angav@remarkname}{Uwaga}
+  \newcommand{\angav@definitionname}{Definicja}
+  \newcommand{\angav@factname}{Fakt}
 }{
   \newcommand{\angav@solutionname}{Solution}
+  \newcommand{\angav@theoremname}{Theorem}
+  \newcommand{\angav@lemmaname}{Lemma}
+  \newcommand{\angav@corollaryname}{Corollary}
+  \newcommand{\angav@examplename}{Example}
+  \newcommand{\angav@remarkname}{Remark}
+  \newcommand{\angav@definitionname}{Definition}
+  \newcommand{\angav@factname}{Fact}
 }
 
 
 % ----------- Custom environments ---------------
-\newenvironment{solution}{\begin{proof}[\angav@solutionname]\small}{\end{proof}}
+\newenvironment{solution}{\begin{proof}[\angav@solutionname]\small}{\normalsize\end{proof}}
+
+\RequirePackage[framemethod=TikZ]{mdframed}
+% todo: frames
+
+\theoremstyle{definition}
+\declaretheorem[name=\angav@theoremname,numberwithin=section]{theorem}
+\declaretheorem[name=\angav@theoremname,numbered=no]{theorem*}
+\declaretheorem[name=\angav@lemmaname,sibling=theorem]{lemma}
+\declaretheorem[name=\angav@lemmaname,numbered=no]{lemma*}
+\declaretheorem[name=\angav@corollaryname,sibling=theorem]{corollary}
+\declaretheorem[name=\angav@corollaryname,numbered=no]{corollary*}
+\declaretheorem[name=\angav@examplename,sibling=theorem]{example}
+\declaretheorem[name=\angav@examplename,numbered=no]{example*}
+\declaretheorem[name=\angav@remarkname,sibling=theorem]{remark}
+\declaretheorem[name=\angav@remarkname,numbered=no]{remark*}
+\declaretheorem[name=\angav@definitionname,sibling=theorem]{definition}
+\declaretheorem[name=\angav@definitionname,numbered=no]{definition*}
+\declaretheorem[name=\angav@factname,sibling=theorem]{fact}
+\declaretheorem[name=\angav@factname,numbered=no]{fact*}
 
 
 % -------------- Custom commands ------------
@@ -111,6 +144,13 @@
 \DeclareMathOperator{\cis}{cis}
 \DeclareMathOperator*{\lcm}{lcm}
 \DeclareMathOperator{\rank}{rank}
+
+\newcommand{\NN}{{\symbb N}}
+\newcommand{\ZZ}{{\symbb Z}}
+\newcommand{\QQ}{{\symbb Q}}
+\newcommand{\RR}{{\symbb R}}
+\newcommand{\CC}{{\symbb C}}
+\newcommand{\KK}{{\symbb K}}
 
 \newcommand{\sA}{{\symcal A}}
 \newcommand{\sB}{{\symcal B}}
