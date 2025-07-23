@@ -16,10 +16,9 @@
 
 
 % ---------- Class options ------------
-\newif\ifangav@polish
-\angav@polishfalse
+\newif\ifangav@pretty\angav@prettyfalse
 
-% \DeclareOption{xyz}{\angav@xyztrue}
+\DeclareOption{pretty}{\angav@prettytrue}
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{scrartcl}}
 \ProcessOptions\relax
@@ -123,20 +122,74 @@
 % ----------- Custom environments ---------------
 \newenvironment{solution}{\begin{proof}[\angav@solutionname]\small}{\normalsize\end{proof}}
 
-\RequirePackage[framemethod=TikZ]{mdframed}
-% todo: frames
+\ifangav@pretty
+  \RequirePackage[framemethod=TikZ]{mdframed}
+  \mdfdefinestyle{mdtheorembox}{
+    skipabove=12pt,
+    skipbelow=2pt,
+    linewidth=0.75pt,
+    innerbottommargin=9pt,
+    linecolor=BoxColor1,
+    backgroundcolor=BoxColor1!5,
+    nobreak=true
+  }
+  \declaretheoremstyle[
+    headfont=\sffamily\bfseries\color{BoxColor1},
+    mdframed={style=mdtheorembox},
+    headpunct={\\[3pt]},
+    postheadspace={0pt}
+  ]{theorembox}
+  \mdfdefinestyle{mdexamplebox}{
+    skipabove=8pt,
+    linewidth=2pt,
+    rightline=false,
+    leftline=true,
+    topline=false,
+    bottomline=false,
+    linecolor=BoxColor2,
+    backgroundcolor=BoxColor2!5,
+    nobreak=true
+  }
+  \declaretheoremstyle[
+    headfont=\sffamily\bfseries\color{BoxColor2},
+    bodyfont=\normalfont\small,
+    mdframed={style=mdexamplebox},
+    headpunct={\\[3pt]},
+    postheadspace={0pt}
+  ]{examplebox}
+  \mdfdefinestyle{mdremarkbox}{
+    skipabove=8pt,
+    linewidth=2pt,
+    rightline=false,
+    leftline=true,
+    topline=false,
+    bottomline=false,
+    linecolor=black,
+    backgroundcolor=black!3,
+  }
+  \declaretheoremstyle[
+    headfont=\sffamily\bfseries,
+    bodyfont=\normalfont\small,
+    mdframed={style=mdremarkbox},
+    headpunct={\\[3pt]},
+    postheadspace={0pt}
+  ]{remarkbox}
+\else
+  \declaretheoremstyle[headfont=\bfseries,bodyfont=\normalfont,spaceabove=\topsep,spacebelow=\topsep]{theorembox}
+  \declaretheoremstyle[headfont=\bfseries,bodyfont=\normalfont,spaceabove=\topsep,spacebelow=\topsep]{examplebox}
+  \declaretheoremstyle[headfont=\bfseries,bodyfont=\normalfont,spaceabove=\topsep,spacebelow=\topsep]{remarkbox}
+\fi
 
-\theoremstyle{definition}
-\declaretheorem[name=\angav@theoremname,numberwithin=section]{theorem}
-\declaretheorem[name=\angav@theoremname,numbered=no]{theorem*}
-\declaretheorem[name=\angav@lemmaname,sibling=theorem]{lemma}
-\declaretheorem[name=\angav@lemmaname,numbered=no]{lemma*}
-\declaretheorem[name=\angav@corollaryname,sibling=theorem]{corollary}
-\declaretheorem[name=\angav@corollaryname,numbered=no]{corollary*}
-\declaretheorem[name=\angav@examplename,sibling=theorem]{example}
-\declaretheorem[name=\angav@examplename,numbered=no]{example*}
-\declaretheorem[name=\angav@remarkname,sibling=theorem]{remark}
-\declaretheorem[name=\angav@remarkname,numbered=no]{remark*}
+\declaretheorem[style=theorembox,name=\angav@theoremname,numberwithin=section]{theorem}
+\declaretheorem[style=theorembox,name=\angav@theoremname,numbered=no]{theorem*}
+\declaretheorem[style=theorembox,name=\angav@lemmaname,sibling=theorem]{lemma}
+\declaretheorem[style=theorembox,name=\angav@lemmaname,numbered=no]{lemma*}
+\declaretheorem[style=theorembox,name=\angav@corollaryname,sibling=theorem]{corollary}
+\declaretheorem[style=theorembox,name=\angav@corollaryname,numbered=no]{corollary*}
+\declaretheorem[style=examplebox,name=\angav@examplename,sibling=theorem]{example}
+\declaretheorem[style=examplebox,name=\angav@examplename,numbered=no]{example*}
+\declaretheorem[style=remarkbox,name=\angav@remarkname,sibling=theorem]{remark}
+\declaretheorem[style=remarkbox,name=\angav@remarkname,numbered=no]{remark*}
 \declaretheorem[name=\angav@definitionname,sibling=theorem]{definition}
 \declaretheorem[name=\angav@definitionname,numbered=no]{definition*}
 \declaretheorem[name=\angav@factname,sibling=theorem]{fact}
