@@ -1,3 +1,8 @@
+%%
+%% Angav v0.1.0
+%% Copyright (c) 2025 Michał Dobranowski
+%%
+
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{angav}[2025/07/17 LaTeX Angav Document Class]
 
