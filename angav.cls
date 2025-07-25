@@ -54,7 +54,13 @@
 
 \RequirePackage{multirow}
 \RequirePackage{multicol}
+\RequirePackage{graphicx}
+\RequirePackage{float}
+\RequirePackage{caption}
+\RequirePackage{subcaption}
 \RequirePackage{tikz}
+\usetikzlibrary{math,shapes.geometric,calc,positioning,fit,decorations.markings}
+\tikzset{>=latex}
 \RequirePackage{tkz-euclide}
 \RequirePackage{nicematrix}
 \NiceMatrixOptions{
@@ -65,6 +71,7 @@
 \RequirePackage[shortlabels]{enumitem}
 \RequirePackage{relsize}  % for \mathlarger
 \RequirePackage{yhmath}  % for \arc
+\RequirePackage{esint}  % for nicer \idotsint
 
 \RequirePackage{marginalia}
 \marginaliasetup{style={\footnotesize}}
@@ -261,3 +268,24 @@
     \renewcommand{\Re}{\operatorname{Re}}
     \renewcommand{\Im}{\operatorname{Im}}
 }
+
+
+% -------------- Page setup ------------
+\addtokomafont{subtitle}{\Large}
+\setkomafont{author}{\Large}
+\setkomafont{date}{\small}
+\setkomafont{caption}{\small}
+\providecommand{\thetitle}{\@title}
+\providecommand{\theauthor}{\@author}
+\providecommand{\thedate}{\@date}
+\RequirePackage[headsepline]{scrlayer-scrpage}
+\renewcommand{\headfont}{}
+\addtolength{\textheight}{3.14cm}
+\setlength{\footskip}{0.5in}
+\setlength{\headsep}{10pt}
+\automark{section}
+\ihead{\footnotesize\theauthor}
+\chead{}
+\ohead{\footnotesize\textbf{\thetitle}}
+\cfoot{\pagemark}
+
