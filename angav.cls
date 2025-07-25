@@ -55,12 +55,16 @@
 \RequirePackage{multirow}
 \RequirePackage{multicol}
 \RequirePackage{tikz}
+\RequirePackage{tkz-euclide}
 \RequirePackage{nicematrix}
 \NiceMatrixOptions{
   custom-line={letter=I, tikz=densely dashed, total-width=\pgflinewidth},
   custom-line={letter=S, tikz=solid, total-width=\pgflinewidth}
 }
 \RequirePackage{booktabs}
+\RequirePackage[shortlabels]{enumitem}
+\RequirePackage{relsize}  % for \mathlarger
+\RequirePackage{yhmath}  % for \arc
 
 \RequirePackage{marginalia}
 \marginaliasetup{style={\footnotesize}}
@@ -180,6 +184,7 @@
   \declaretheoremstyle[headfont=\bfseries,bodyfont=\normalfont,spaceabove=\topsep,spacebelow=\topsep]{remarkbox}
 \fi
 
+\theoremstyle{definition}
 \declaretheorem[style=theorembox,name=\angav@theoremname,numberwithin=section]{theorem}
 \declaretheorem[style=theorembox,name=\angav@theoremname,numbered=no]{theorem*}
 \declaretheorem[style=theorembox,name=\angav@lemmaname,sibling=theorem]{lemma}
@@ -202,6 +207,21 @@
 \DeclareMathOperator{\cis}{cis}
 \DeclareMathOperator*{\lcm}{lcm}
 \DeclareMathOperator{\rank}{rank}
+\newcommand{\opname}{\operatorname}
+
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\ceiling}[1]{\left\lceil #1 \right\rceil}
+\newcommand{\ol}{\overline}
+\newcommand{\ul}{\underline}
+\newcommand{\arc}{\wideparen}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dg}{^\circ}
+\renewcommand{\d}[1]{\ensuremath{\operatorname{d}\!{#1}}}
+\newcommand{\p}[1]{\ensuremath{\partial{#1}}}
+\newcommand{\ddx}{\frac{\d{}}{\d x}}
+\newcommand{\dforall}[1]{\displaystyle\mathop{\mathlarger{\mathlarger{\forall}}}_{#1}\ }
+\newcommand{\dexists}[1]{\displaystyle\mathop{\mathlarger{\mathlarger{\exists}}}_{#1}\ }
+\newcommand{\dexistsone}[1]{\displaystyle\mathop{\mathlarger{\mathlarger{\exists!}}}_{#1}\ }
 
 \newcommand{\NN}{{\symbb N}}
 \newcommand{\ZZ}{{\symbb Z}}
