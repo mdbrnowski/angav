@@ -17,8 +17,10 @@
 
 % ---------- Class options ------------
 \newif\ifangav@pretty\angav@prettyfalse
+\newif\ifangav@answers\angav@answersfalse
 
 \DeclareOption{pretty}{\angav@prettytrue}
+\DeclareOption{answers}{\angav@answerstrue}
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{scrartcl}}
 \ProcessOptions\relax
@@ -66,6 +68,13 @@
 \NiceMatrixOptions{
   custom-line={letter=I, tikz=densely dashed, total-width=\pgflinewidth},
   custom-line={letter=S, tikz=solid, total-width=\pgflinewidth}
+}
+\RequirePackage{minted}
+\setminted{
+  style=tango,
+  frame=lines,
+  framesep=2mm,
+  fontsize=\footnotesize
 }
 \RequirePackage{booktabs}
 \RequirePackage[shortlabels]{enumitem}
@@ -118,6 +127,7 @@
   \newcommand{\angav@remarkname}{Uwaga}
   \newcommand{\angav@definitionname}{Definicja}
   \newcommand{\angav@factname}{Fakt}
+  \newcommand{\angav@problemname}{Problem}
 }{
   \newcommand{\angav@solutionname}{Solution}
   \newcommand{\angav@theoremname}{Theorem}
@@ -127,6 +137,7 @@
   \newcommand{\angav@remarkname}{Remark}
   \newcommand{\angav@definitionname}{Definition}
   \newcommand{\angav@factname}{Fact}
+  \newcommand{\angav@problemname}{Problem}
 }
 
 
@@ -206,6 +217,8 @@
 \declaretheorem[name=\angav@definitionname,numbered=no]{definition*}
 \declaretheorem[name=\angav@factname,sibling=theorem]{fact}
 \declaretheorem[name=\angav@factname,numbered=no]{fact*}
+\declaretheorem[name=\angav@problemname,sibling=theorem]{problem}
+\declaretheorem[name=\angav@problemname,numbered=no]{problem*}
 
 
 % -------------- Custom commands ------------
@@ -289,3 +302,17 @@
 \ohead{\footnotesize\textbf{\thetitle}}
 \cfoot{\pagemark}
 
+
+% -------------- Answers ------------
+\ifangav@answers
+  \RequirePackage{answers}
+  \renewcommand{\solutionextension}{out}
+
+  \Newassociation{hint}{hintitem}{hints}
+  \Opensolutionfile{hints}
+  \newcommand{\makehints}{\Closesolutionfile{hints}\input{hints.out}}
+
+  \Newassociation{answer}{hintitem}{answers}
+  \Opensolutionfile{answers}
+  \newcommand{\makeanswers}{\Closesolutionfile{answers}\input{answers.out}}
+\fi
