@@ -91,7 +91,7 @@
 \RequirePackage[lining]{raleway}  % loads Raleway sans serif font
 \setmonofont{JetBrainsMono}[Scale=0.85]  % you need to have JetBrains Mono installed
 \RequirePackage{microtype}
-
+\RequirePackage{csquotes}
 \RequirePackage{babel}
 
 
