@@ -1,5 +1,5 @@
 %%
-%% Angav v0.1.0
+%% Angav v1.0.0
 %% Copyright (c) 2025 Michał Dobranowski
 %%
 
@@ -27,7 +27,7 @@
 
 
 % ---------- Load base class ------------
-\LoadClassWithOptions{scrartcl}
+\LoadClass[numbers=withenddot]{scrartcl}
 
 
 % ----------- Color definitions ------------
