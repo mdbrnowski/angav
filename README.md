@@ -1,3 +1,3 @@
 # Angav
 
-Angav (pronounced [aŋɡˈaːf]).
+Angav (pronounced [aŋɡˈaːf]). My own LaTeX class.
