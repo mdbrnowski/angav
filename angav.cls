@@ -1,5 +1,5 @@
 %%
-%% Angav v1.0.0
+%% Angav v1.1.0
 %% Copyright (c) 2025 Michał Dobranowski
 %%
 
@@ -81,9 +81,6 @@
 \RequirePackage{relsize}  % for \mathlarger
 \RequirePackage{yhmath}  % for \arc
 \RequirePackage{esint}  % for nicer \idotsint
-
-\RequirePackage{marginalia}
-\marginaliasetup{style={\footnotesize}}
 
 \RequirePackage[color=ColAccBad,textsize=footnotesize]{todonotes}
 
@@ -278,8 +275,14 @@
 \newcommand{\kq}{{\symscr q}}
 
 \AtBeginDocument{
-    \renewcommand{\Re}{\operatorname{Re}}
-    \renewcommand{\Im}{\operatorname{Im}}
+  \renewcommand{\Re}{\operatorname{Re}}
+  \renewcommand{\Im}{\operatorname{Im}}
+
+  % extra space around \therefore and \because
+  \let\oldtherefore\therefore
+  \renewcommand{\therefore}{\mathrel{\mkern4mu\oldtherefore\mkern4mu}}
+  \let\oldbecause\because
+  \renewcommand{\because}{\mathrel{\mkern4mu\oldbecause\mkern4mu}}
 }
 
 
