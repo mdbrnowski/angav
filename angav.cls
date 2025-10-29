@@ -1,5 +1,5 @@
 %%
-%% Angav v1.1.0
+%% Angav v1.1.1
 %% Copyright (c) 2025 Michał Dobranowski
 %%
 
@@ -61,7 +61,7 @@
 \RequirePackage{caption}
 \RequirePackage{subcaption}
 \RequirePackage{tikz}
-\usetikzlibrary{math,shapes.geometric,calc,positioning,fit,decorations.markings}
+\usetikzlibrary{math,arrows.meta,shapes.geometric,calc,positioning,fit,decorations.markings}
 \tikzset{>=latex}
 \RequirePackage{tkz-euclide}
 \RequirePackage{nicematrix}
