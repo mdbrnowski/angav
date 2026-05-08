@@ -1,5 +1,5 @@
 %%
-%% Angav v1.1.1
+%% Angav v1.1.2
 %% Copyright (c) 2025 Michał Dobranowski
 %%
 
@@ -84,6 +84,8 @@
 
 \RequirePackage[color=ColAccBad,textsize=footnotesize]{todonotes}
 
+\let\circledR\relax  % bugfix
+\let\circledS\relax  % bugfix
 \RequirePackage{fontsetup}  % loads fontspec and New Computer Modern
 \RequirePackage[lining]{raleway}  % loads Raleway sans serif font
 \setmonofont{JetBrainsMono}[Scale=0.85]  % you need to have JetBrains Mono installed
