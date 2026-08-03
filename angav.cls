@@ -1,5 +1,5 @@
 %%
-%% Angav v1.1.2
+%% Angav v1.1.3
 %% Copyright (c) 2025 Michał Dobranowski
 %%
 
@@ -32,7 +32,7 @@
 
 % ----------- Color definitions ------------
 \RequirePackage[svgnames]{xcolor}
-% todo: change color names
+% TODO: change color names
 \definecolor{AccColor1}{HTML}{C41E3A}     %#C41E3A
 \definecolor{AccColor2}{HTML}{233F8D}     %#233F8D
 \definecolor{AccColor3}{HTML}{D19820}     %#D19820
@@ -52,6 +52,14 @@
 % ----------- Required packages ------------
 \RequirePackage{mathtools}  % loads amsmath
 \RequirePackage{amssymb}
+% LaTeX's first aid patches amsthm's \@ynthm to use \newcounteralias, which
+% clashes with the counter aliasing thmtools (v0.76) already does itself:
+% every \declaretheorem[sibling=...] then dies with "\c@<env> already defined".
+% Upstream bug: https://github.com/muzimuzhi/thmtools/issues/75 (open as of
+% 2026-08); drop these lines once thmtools > v0.76 ships a fix. Or
+% TODO: migrate to keytheorems (maintained, tagged-PDF-aware; would need the
+% mdframed theorem styles below rewritten in tcolorbox)
+\RemoveFromHook{package/amsthm/after}[firstaid/aliascounter]
 \RequirePackage{amsthm,thmtools}
 
 \RequirePackage{multirow}
